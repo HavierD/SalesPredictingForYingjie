@@ -1,10 +1,8 @@
 package tech.havier.yingjieduck.DataBase;
 
-import org.jetbrains.annotations.NotNull;
 import tech.havier.yingjieduck.DataChecking;
 import tech.havier.yingjieduck.DataFormatting;
 
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.Arrays;
 
@@ -44,7 +42,7 @@ public class DatabaseOperation {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "havier", "xiaodai1");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedResult = new double[rowCount][];
@@ -75,7 +73,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "havier", "xiaodai1");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedInput = new double[rowCount][];
@@ -113,7 +111,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "havier", "xiaodai1");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
             Statement statement = connection.createStatement();
 
             statement.executeUpdate(aWholeSalesDataSQL);
