@@ -11,7 +11,7 @@ public class DatabaseOperation {
     /**
      * operation part
      */
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         submitWholeSalesData();
 //        finalInputSetForTraining();
@@ -20,7 +20,7 @@ public class DatabaseOperation {
 
     public static void submitWholeSalesData(){
 
-        String aWholeSalesDataValue = DataChecking.dataForSQL(
+        final String aWholeSalesDataValue = DataChecking.dataForSQL(
                 20220905,
                 0,9,5,
                 0,8,10,
@@ -33,7 +33,7 @@ public class DatabaseOperation {
                 0,0,
                 18
         );
-        String aWholeSalesDataSQL = "insert into sales_data values (" + aWholeSalesDataValue + ")";
+        final String aWholeSalesDataSQL = "insert into sales_data values (" + aWholeSalesDataValue + ")";
 
         insertData(aWholeSalesDataSQL);
     }
@@ -42,7 +42,7 @@ public class DatabaseOperation {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi2.user, ConfigHavi2.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedResult = new double[rowCount][];
@@ -73,7 +73,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi2.user, ConfigHavi2.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedInput = new double[rowCount][];
@@ -111,7 +111,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi2.user, ConfigHavi2.pwd);
             Statement statement = connection.createStatement();
 
             statement.executeUpdate(aWholeSalesDataSQL);
