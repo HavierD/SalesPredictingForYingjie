@@ -42,7 +42,7 @@ public class DatabaseOperation {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedResult = new double[rowCount][];
@@ -73,7 +73,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
 
             int rowCount = getRowCount(connection);
             double[][] returnedInput = new double[rowCount][];
@@ -111,7 +111,7 @@ public class DatabaseOperation {
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi.user, ConfigHavi.pwd);
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", ConfigHavi1.user, ConfigHavi1.pwd);
             Statement statement = connection.createStatement();
 
             statement.executeUpdate(aWholeSalesDataSQL);
