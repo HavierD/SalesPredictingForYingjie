@@ -1,8 +1,9 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class LunarDate extends AbstractData{
+public class Wind extends AbstractData{
     private int intValue = 0;
-    private int digitNumber = 5;
+    private String stringValue = "0";
+    private int digitNumber = 4;
 
     public int getIntValue() {
         return intValue;
@@ -10,6 +11,14 @@ public class LunarDate extends AbstractData{
 
     public void setIntValue(int intValue) {
         this.intValue = intValue;
+    }
+
+    public String getStringValue() {
+        return stringValue;
+    }
+
+    public void setStringValue(String stringValue) {
+        this.stringValue = stringValue;
     }
 
     public int getDigitNumber() {

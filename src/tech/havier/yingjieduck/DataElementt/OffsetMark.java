@@ -1,10 +1,9 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class HighestTemp extends AbstractData {
-
+public class OffsetMark extends AbstractData{
     private int intValue = 0;
     private String stringValue = String.valueOf(intValue);
-    private int digitNumber = 6;
+    private int digitNumber = 1;
 
     public int getIntValue() {
         return intValue;
@@ -29,5 +28,4 @@ public class HighestTemp extends AbstractData {
     public void setDigitNumber(int digitNumber) {
         this.digitNumber = digitNumber;
     }
-
 }

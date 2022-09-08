@@ -1,9 +1,9 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class KindergartenHoliday extends AbstractData {
+public class Date extends AbstractData{
     private int intValue = 0;
     private String stringValue = String.valueOf(intValue);
-    private int digitNumber = 1;
+    private int digitNumber = 5;
 
     public int getIntValue() {
         return intValue;
@@ -28,6 +28,5 @@ public class KindergartenHoliday extends AbstractData {
     public void setDigitNumber(int digitNumber) {
         this.digitNumber = digitNumber;
     }
-
 
 }

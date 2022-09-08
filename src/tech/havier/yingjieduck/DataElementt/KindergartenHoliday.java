@@ -1,6 +1,6 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class OffsetMark extends AbstractData{
+public class KindergartenHoliday extends AbstractData {
     private int intValue = 0;
     private String stringValue = String.valueOf(intValue);
     private int digitNumber = 1;
@@ -28,4 +28,6 @@ public class OffsetMark extends AbstractData{
     public void setDigitNumber(int digitNumber) {
         this.digitNumber = digitNumber;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
 public abstract class AbstractData {
 

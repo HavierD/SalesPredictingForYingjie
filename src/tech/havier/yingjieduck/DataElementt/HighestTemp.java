@@ -1,9 +1,10 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class Wind extends AbstractData{
+public class HighestTemp extends AbstractData {
+
     private int intValue = 0;
-    private String stringValue = "0";
-    private int digitNumber = 4;
+    private String stringValue = String.valueOf(intValue);
+    private int digitNumber = 6;
 
     public int getIntValue() {
         return intValue;

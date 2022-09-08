@@ -1,6 +1,6 @@
 package tech.havier.yingjieduck;
 
-import tech.havier.yingjieduck.DataElement.*;
+import tech.havier.yingjieduck.DataElementt.*;
 
 
 public class DataFormatting {

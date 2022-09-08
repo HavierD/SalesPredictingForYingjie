@@ -1,9 +1,9 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class Rain extends AbstractData{
+public class Month extends AbstractData{
     private int intValue = 0;
     private String stringValue = String.valueOf(intValue);
-    private int digitNumber = 2;
+    private int digitNumber = 4;
 
     public int getIntValue() {
         return intValue;

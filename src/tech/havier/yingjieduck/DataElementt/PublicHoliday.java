@@ -1,9 +1,9 @@
-package tech.havier.yingjieduck.DataElement;
+package tech.havier.yingjieduck.DataElementt;
 
-public class Day extends AbstractData{
+public class PublicHoliday extends AbstractData{
     private int intValue = 0;
     private String stringValue = String.valueOf(intValue);
-    private int digitNumber = 3;
+    private int digitNumber = 1;
 
     public int getIntValue() {
         return intValue;
