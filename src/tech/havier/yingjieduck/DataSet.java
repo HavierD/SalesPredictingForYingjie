@@ -1,9 +1,7 @@
 package tech.havier.yingjieduck;
 
 
-import java.util.Map;
-
-public class DataElement {
+public class DataSet {
     private int year;
     private int month;
     private int date;
@@ -31,9 +29,13 @@ public class DataElement {
     private int offsetMark;
     private int endTimeOffset;
 
-    private int[] decimalSet;
+    private int[][] decimalSet;
 
-    private int[] format10to2 ={
+    public static int[] getFormat10to2() {
+        return format10to2;
+    }
+
+    private static int[] format10to2 ={
             3, 4, 5,
             3, 4, 5,
             3,
@@ -43,25 +45,19 @@ public class DataElement {
             2, 1, 5};
 
     interface Importer {
-        int fetchADataSet();
+        int[][] fetchDecimalSet();
+    }
+    interface Exporter{
+        void saveDecimalSet(int[][] decimalSet);
     }
 
-    public DataElement(){};
-    public DataElement(Importer source){
-
-    }
-    private void formDecimalSet(){
-        decimalSet = new int[]{
-                year, month, date, lYear, lMonth, lDate, day,
-                rain, wind, tempMark, highestTemp,
-                isPublicHoliday, beforeHoliday, workOnWeekend,
-                kindergartenHoliday, primaryHoliday, middleHoliday,
-                covidStatus, offsetMark, endTimeOffset
-        };
+    public DataSet(Importer source){
+        decimalSet = source.fetchDecimalSet();
     }
 
 
-    public void export(Importer destination) {
+
+    public void exportTo(Exporter destination) {
 
     }
 

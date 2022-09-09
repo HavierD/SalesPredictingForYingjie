@@ -1,4 +1,4 @@
-package tech.havier.yingjieduck;
+package tech.havier.yingjieduck.neuralNetworkSet;
 
 public class WorkerThread extends Thread {
     private int row;

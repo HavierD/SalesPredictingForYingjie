@@ -1,6 +1,7 @@
 package tech.havier.yingjieduck;
 
 import tech.havier.yingjieduck.DataBase.DatabaseOperation;
+import tech.havier.yingjieduck.neuralNetworkSet.NeuralNetwork;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,12 +10,13 @@ import java.util.List;
 
 /**
  * Neuron networks code referenced from <a href="https://github.com/SuyashSonawane/JavaNet">...</a>,
- * includes tech.havier.yingjieduck.NeuralNetwork class, tech.havier.yingjieduck.Matrix class, tech.havier.yingjieduck.ParallelThreadsCreator class, tech.havier.yingjieduck.RowMultiplyWorker class
+ * includes tech.havier.yingjieduck.neuralNetworkSet.NeuralNetwork class, tech.havier.yingjieduck.neuralNetworkSet.Matrix class, tech.havier.yingjieduck.neuralNetworkSet.ParallelThreadsCreator class, tech.havier.yingjieduck.neuralNetworkSet.RowMultiplyWorker class
  * and workerThread class. Others are all written by me.
  */
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+
 
 
         /**
@@ -28,9 +30,9 @@ public class Main {
          * train the model
          */
 
-        double[][] input = DatabaseOperation.finalInputSetForTraining();
-        double[][] output = DatabaseOperation.finalResultSetForTraining();
-        nn.fit(input, output, 10000, 1);
+//        double[][] input = DatabaseOperation.finalInputSetForTraining();
+//        double[][] output = DatabaseOperation.finalResultSetForTraining();
+//        nn.fit(input, output, 10000, 1);
 
 //        nn.fit(Database.allInputData, Database.allOutputData, 70000, 1);
 
@@ -41,7 +43,7 @@ public class Main {
 //        nn.fit(inputDataSet, outputResults, 400); // silent learn
 //        nn.fit(inputDataSet,outputResults,500,0); // logging set to 0, shows training time and average error
         /**
-         * test the model
+         * Test the model
          */
 
         List<Double> output1;
@@ -76,3 +78,13 @@ public class Main {
         }
     }
 }
+
+
+/**
+ * one row of data: Decimal int array -> binary String -> binary int array;
+ *
+ * whole process: many rows of data(decimal int arrays)
+ * -> convert {into binary String----binary double array} one row by one row.
+ * -> double[][] set
+ *
+ */

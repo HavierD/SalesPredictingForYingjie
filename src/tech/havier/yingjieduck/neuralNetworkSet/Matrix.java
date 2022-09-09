@@ -1,4 +1,4 @@
-package tech.havier.yingjieduck;
+package tech.havier.yingjieduck.neuralNetworkSet;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tech.havier.yingjieduck.DataChecking;
 
-@DisplayName("tech.havier.yingjieduck.DataChecking class test")
+@DisplayName("tech.havier.yingjieduck.DataChecking class Testt")
 class DataCheckingTest {
 
     private DataChecking dataChecking;
