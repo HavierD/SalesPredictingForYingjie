@@ -1,6 +1,6 @@
 package tech.havier.yingjieduck;
 
-import tech.havier.yingjieduck.DataElementt.*;
+import tech.havier.yingjieduck.DataElement.*;
 
 
 public class DataFormatting {
@@ -60,18 +60,18 @@ public class DataFormatting {
 
 
     //todo: try to get input from objects
-    public static String generateWholeBinaryCode (AbstractData[] inputArray) {
-        String binaryCode = "";
-        for(AbstractData e : inputArray){
-            int di = e.getDigitNumber();
-            int decimalValue = e.getIntValue();
-            String format = "%0" + di + "d";
-            String rawBinaryValue = Integer.toBinaryString(decimalValue);
-            String binaryValue = String.format(format, Integer.parseInt(rawBinaryValue));
-            binaryCode += binaryValue;
-        }
-        return binaryCode;
-    }
+//    public static String generateWholeBinaryCode (AbstractData[] inputArray) {
+//        String binaryCode = "";
+//        for(AbstractData e : inputArray){
+//            int di = e.getDigitNumber();
+//            int decimalValue = e.getIntValue();
+//            String format = "%0" + di + "d";
+//            String rawBinaryValue = Integer.toBinaryString(decimalValue);
+//            String binaryValue = String.format(format, Integer.parseInt(rawBinaryValue));
+//            binaryCode += binaryValue;
+//        }
+//        return binaryCode;
+//    }
 
     public static String generateWholeBinaryCode(int[] inputArray){
         StringBuilder binaryCode = new StringBuilder();
@@ -108,7 +108,7 @@ public class DataFormatting {
 
     public static String generalOutputBinaryCode(int output) {
         String rawBinaryOutput = Integer.toBinaryString(output);
-        String binaryOutput = String.format("%08d", Integer.parseInt(rawBinaryOutput));
+        String binaryOutput = String.format("%09d", Integer.parseInt(rawBinaryOutput));
         StringBuilder outputCode = new StringBuilder();
         String[] charArray = binaryOutput.split("(?!^)");
         for (String d : charArray){

@@ -1,7 +1,5 @@
 package tech.havier.yingjieduck;
 
-import java.util.Arrays;
-
 /**
  * generate 2-dimensional double array for training the neural network.
  */
@@ -12,12 +10,12 @@ public class TrainingInputExporter implements DataSet.Exporter {
     private static final int[] format = DataSet.getFormat10to2();
 
     public static void main(String[] args) throws Exception {
-        int[][] sql = SqlOperation.getAllInputsFromDB();
+        int[][] sql = SqlOperation.getAllDataFromDB();
         DataSet me = new DataSet(new SqlImporter(sql));
 
         DataSet.Exporter exporter = new TrainingInputExporter();
         me.exportTo(exporter);
-        exporter.
+//        exporter.
     }
 
     @Override
@@ -26,7 +24,7 @@ public class TrainingInputExporter implements DataSet.Exporter {
     }
 
     public static double[][] toDoubleNestedArrays(){
-        System.out.println(Arrays.toString(decimalSet[1]));
+//        System.out.println(Arrays.toString(decimalSet[1]));
         return null;
     }
 

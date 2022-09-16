@@ -24,15 +24,15 @@ public class Main {
          * The number of hidden neurons should be 2/3 the size of the input layer, plus the size of the output layer, or
          * The number of hidden neurons should be less than twice the size of the input layer.
          */
-        NeuralNetwork nn = new NeuralNetwork(54, 30, 8);
+        NeuralNetwork nn = new NeuralNetwork(54, 30, 9);
 
         /**
          * train the model
          */
 
-//        double[][] input = DatabaseOperation.finalInputSetForTraining();
-//        double[][] output = DatabaseOperation.finalResultSetForTraining();
-//        nn.fit(input, output, 10000, 1);
+        double[][] input = DatabaseOperation.finalInputSetForTraining();
+        double[][] output = DatabaseOperation.finalResultSetForTraining();
+        nn.fit(input, output, 10000, 1);
 
 //        nn.fit(Database.allInputData, Database.allOutputData, 70000, 1);
 

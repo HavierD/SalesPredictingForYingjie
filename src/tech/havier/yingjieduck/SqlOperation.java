@@ -1,6 +1,7 @@
 package tech.havier.yingjieduck;
 
 import tech.havier.yingjieduck.DataBase.ConfigHavi2;
+import tech.havier.yingjieduck.DataElement.DataElement;
 
 import java.sql.*;
 import java.util.Arrays;
@@ -10,7 +11,16 @@ public class SqlOperation {
 
     static ConfigHavi2 config = new ConfigHavi2();
 
-    public static int[][] getAllInputsFromDB() throws Exception {
+
+    public static DataElement[] populateAllDataIntoDataElement() throws Exception {
+        int[][] allData = getAllDataFromDB();
+        DataElement[] dataBunch = new DataElement[allData.length];
+        for (int i = 0; i < allData.length; i++){
+            dataBunch[i].setDataElement(allData[i]);
+        }
+        return dataBunch;
+    }
+    public static int[][] getAllDataFromDB() throws Exception {
         try {
         Connection connection = getConnection();
         int rowCount = getRowCount(connection);
@@ -25,9 +35,9 @@ public class SqlOperation {
             int columnCount = allInputResultSet.getMetaData().getColumnCount();
             int nestingIndex = 0;
             while (allInputResultSet.next()) {
-                int[] oneRow = new int[columnCount - 2];
-                for(int i=2; i<=columnCount-1; i++){
-                    oneRow[i - 2] = allInputResultSet.getInt(i);
+                int[] oneRow = new int[columnCount - 1];
+                for(int i=1; i<=columnCount-1; i++){
+                    oneRow[i - 1] = allInputResultSet.getInt(i+1);
                 }
                 returnedResult[nestingIndex] = oneRow;
                 nestingIndex++;
@@ -38,6 +48,11 @@ public class SqlOperation {
         }
     }
 
+    /**
+     * Include all input data and all result data
+     * @return
+     * @throws SQLException
+     */
     public static double[][] getAllOutputsFromDB() throws SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
