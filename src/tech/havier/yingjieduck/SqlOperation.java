@@ -16,7 +16,7 @@ public class SqlOperation {
         int[][] allData = getAllDataFromDB();
         DataElement[] dataBunch = new DataElement[allData.length];
         for (int i = 0; i < allData.length; i++){
-            dataBunch[i].setDataElement(allData[i]);
+//            dataBunch[i].setDataElement(allData[i]);
         }
         return dataBunch;
     }

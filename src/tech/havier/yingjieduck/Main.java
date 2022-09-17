@@ -30,9 +30,9 @@ public class Main {
          * train the model
          */
 
-        double[][] input = DatabaseOperation.finalInputSetForTraining();
-        double[][] output = DatabaseOperation.finalResultSetForTraining();
-        nn.fit(input, output, 10000, 1);
+//        double[][] input = DatabaseOperation.finalInputSetForTraining();
+//        double[][] output = DatabaseOperation.finalResultSetForTraining();
+//        nn.fit(input, output, 10000, 1);
 
 //        nn.fit(Database.allInputData, Database.allOutputData, 70000, 1);
 
@@ -47,35 +47,35 @@ public class Main {
          */
 
         List<Double> output1;
-        double[][] input1 = {
-                SalesPredicting.predictingThis(0, 9, 6, 0, 8, 11, 2, 0, 3, 1, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-                {0,0,0,1,0,0,0,1,1,0,1,0,0,0,0,0,1,1,1,1,1,1,0,1,1,0,1,0,0,0,1,0,1,1,0,1,1,1,0,1,0,0,0,1,1,1,0,0,0,0,0,0,1,0}, //26  =33
-                {0,0,0,1,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,1,0,1,1,0,0,1,0,0,0,1,1,1,0,0,1,0,0,0,0,1},//27  =35
-                {0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0,0,1,1,0,1,1,0,1,0,0,0,0,1,1,1,0,0,1,0,1,0,0,1},//28  =32
-                {0,0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,1,0,0,1,0,1,0,1,0,1,1,1,0,0,0,1,0,0,0,0,1,0,1,1,1,1},//29  =16
-                {0,0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0}, //30  =23
-                {0,0,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,1,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1} //31/8  ==28
-
-        };
+//        double[][] input1 = {
+//                SalesPredicting.predictingThis(0, 9, 6, 0, 8, 11, 2, 0, 3, 1, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+//                {0,0,0,1,0,0,0,1,1,0,1,0,0,0,0,0,1,1,1,1,1,1,0,1,1,0,1,0,0,0,1,0,1,1,0,1,1,1,0,1,0,0,0,1,1,1,0,0,0,0,0,0,1,0}, //26  =33
+//                {0,0,0,1,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,1,0,1,1,0,0,1,0,0,0,1,1,1,0,0,1,0,0,0,0,1},//27  =35
+//                {0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0,0,1,1,0,1,1,0,1,0,0,0,0,1,1,1,0,0,1,0,1,0,0,1},//28  =32
+//                {0,0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,1,0,0,1,0,1,0,1,0,1,1,1,0,0,0,1,0,0,0,0,1,0,1,1,1,1},//29  =16
+//                {0,0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0}, //30  =23
+//                {0,0,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,1,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1} //31/8  ==28
+//
+//        };
 //                DatabaseOperation.finalInputSetForTraining();
 
         int cIndex = 0;
-        for (double[] d : input1) {
-            int[] comparing = {0, 33, 35, 32, 16, 23, 28};
-
-
-            output1 = nn.predict(d);
-            List<Integer> output2 = new ArrayList<>();
-            //round output from double into integer
-            for(double e : output1){
-                output2.add((int) Math.round(e));
-            }
-
-            String output3 = output2.toString().replaceAll(",", "").replaceAll(" ", "").replace("[", "").replace("]", "");
-            int decimal = Integer.parseInt(output3, 2);
-            System.out.println(decimal - comparing[cIndex]);
-            cIndex++;
-        }
+//        for (double[] d : input1) {
+//            int[] comparing = {0, 33, 35, 32, 16, 23, 28};
+//
+//
+//            output1 = nn.predict(d);
+//            List<Integer> output2 = new ArrayList<>();
+//            //round output from double into integer
+//            for(double e : output1){
+//                output2.add((int) Math.round(e));
+//            }
+//
+//            String output3 = output2.toString().replaceAll(",", "").replaceAll(" ", "").replace("[", "").replace("]", "");
+//            int decimal = Integer.parseInt(output3, 2);
+//            System.out.println(decimal - comparing[cIndex]);
+//            cIndex++;
+//        }
     }
 }
 

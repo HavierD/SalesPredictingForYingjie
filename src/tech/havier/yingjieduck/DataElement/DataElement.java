@@ -1,5 +1,8 @@
 package tech.havier.yingjieduck.DataElement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataElement {
 //    private Year year = new Year();
 //    private Month month = new Month();
@@ -25,7 +28,10 @@ public class DataElement {
 //    private OffsetMark offsetMark;
 //    private EndTimeOffset endTimeOffset;
 
-    private SetableAndGetable[] dataElement = {
+    public static void main(String[] args) {
+    }
+
+     private static SetableAndGetable[] dataElement = {
             new Year(),
             new Month(),
             new Date(),
@@ -57,12 +63,34 @@ public class DataElement {
      * This method is used to populate one dataset (Decimal)
      * @param dataPile
      */
-    public void setDataElement(int[] dataPile) {
+    public DataElement(int[] dataPile) {
         if (dataPile.length != dataElement.length){
             throw new IllegalArgumentException("data length incorrect!");
         }
         for (int i = 0; i < dataPile.length; i++) {
             dataElement[i].setValue(dataPile[i]);
         }
+    }
+    //for test, delete quickly
+
+
+    public static int[] getInputBitsCounts(){
+        List<Integer> bitsList = new ArrayList<>();
+        for(SetableAndGetable e : dataElement){
+            bitsList.add(e.getBITS_COUNT());
+        }
+        return bitsList.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    /**
+     * return the number of input for neural network.
+     * @return
+     */
+    public static int getTotalInputCount(){
+        int input = 0;
+        for(int e : getInputBitsCounts()){
+            input += e;
+        }
+        return input;
     }
 }
