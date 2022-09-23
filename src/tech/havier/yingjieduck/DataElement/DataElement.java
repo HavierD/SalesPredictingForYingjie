@@ -1,37 +1,16 @@
 package tech.havier.yingjieduck.DataElement;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataElement {
-//    private Year year = new Year();
-//    private Month month = new Month();
-//    private Date date = new Date();
-//    private LunarYear lunarYear;
-//    private LunarMonth lunarMonth;
-//    private LunarDate lunarDate;
-//    private Day day;
-//
-//    private Rain rain;
-//    private Wind wind;
-//    private TempMark tempMark;
-//    private HighestTemp highestTemp;
-//
-//    private PublicHoliday publicHoliday;
-//    private IsBeforeHoliday isBeforeHoliday;
-//    private WorkOnWeekends workOnWeekends;
-//    private KindergartenHoliday kindergartenHoliday;
-//    private PrimarySchoolHoliday primarySchoolHoliday;
-//    private MiddleSchoolHoliday middleSchoolHoliday;
-//
-//    private CovidStatus covidStatus;
-//    private OffsetMark offsetMark;
-//    private EndTimeOffset endTimeOffset;
+
 
     public static void main(String[] args) {
     }
 
-     private static SetableAndGetable[] dataElement = {
+     private SetableAndGetable[] dataElement = {
             new Year(),
             new Month(),
             new Date(),
@@ -71,26 +50,52 @@ public class DataElement {
             dataElement[i].setValue(dataPile[i]);
         }
     }
-    //for test, delete quickly
+
+    public DataElement() {
+    }
 
 
-    public static int[] getInputBitsCounts(){
+    public int[] getInputBitsCounts(){
         List<Integer> bitsList = new ArrayList<>();
         for(SetableAndGetable e : dataElement){
             bitsList.add(e.getBITS_COUNT());
         }
+        int removedIndex = dataElement.length -1;
+        bitsList.remove(removedIndex);
         return bitsList.stream().mapToInt(Integer::intValue).toArray();
     }
 
     /**
-     * return the number of input for neural network.
+     * return the number of decimal input for neural network.
      * @return
      */
-    public static int getTotalInputCount(){
+    public int getTotalInputCount(){
         int input = 0;
         for(int e : getInputBitsCounts()){
             input += e;
         }
         return input;
+    }
+
+    public static int getTotalOutputCount(){
+        return new Result().getBITS_COUNT();
+    }
+
+    /**
+     * return a decimal array of all input values
+     * @return
+     */
+    public int[] inputValueArray() {
+        List<Integer> returnedArray = new ArrayList<>();
+        for(SetableAndGetable e : dataElement){
+            returnedArray.add(e.getValue());
+        }
+        int removedIndex = dataElement.length-1;
+        returnedArray.remove(removedIndex);
+        return returnedArray.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public int outputValue() {
+        return dataElement[dataElement.length-1].getValue();
     }
 }

@@ -4,8 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static tech.havier.yingjieduck.DataElement.DataElement.getInputBitsCounts;
-import static tech.havier.yingjieduck.DataElement.DataElement.getTotalInputCount;
 
 class DataElementTest {
 
@@ -24,21 +22,22 @@ class DataElementTest {
 
     @Test
     public void testBitsCount() {
-        assertArrayEquals(bitsArray, getInputBitsCounts());
+        assertArrayEquals(bitsArray, new DataElement().getInputBitsCounts());
+        assertEquals(20, new DataElement().getInputBitsCounts().length);
     }
 
     @Test
     public void testTotalInputCount() {
 
-        assertEquals(total,getTotalInputCount() );
+        assertEquals(total,new DataElement().getTotalInputCount() );
     }
 
     @Test
     public void testSetDataElement() {
         int[] e = {1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,0,0,1};
 
-
-
     }
+
+
 
 }

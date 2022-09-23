@@ -103,7 +103,6 @@ public class DataFormatting {
             doubleArray[i] = Double.parseDouble(charArray[i]);
         }
         return doubleArray;
-
     }
 
     public static String generalOutputBinaryCode(int output) {
